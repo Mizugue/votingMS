@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/PollManagerService/pom.xml" />
         <option value="$PROJECT_DIR$/ConfigService/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaService/pom.xml" />
+        <option value="$PROJECT_DIR$/PollVotingService/pom.xml" />
+        <option value="$PROJECT_DIR$/PollRepositoryService/pom.xml" />
+        <option value="$PROJECT_DIR$/PollCorrectionService/pom.xml" />
       </list>
     </option>
   </component>

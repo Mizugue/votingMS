@@ -2,6 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true">
+        <processorPath useClasspath="false" useProcessorModulePath="true" />
+      </profile>
       <profile name="Annotation profile for PollManagerService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -15,7 +18,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="PollVotingService" />
+        <module name="PollCorrectionService" />
         <module name="ConfigService" />
+        <module name="PollRepositoryService" />
         <module name="EurekaService" />
       </profile>
     </annotationProcessing>
@@ -24,7 +30,10 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ConfigService" options="-parameters" />
       <module name="EurekaService" options="-parameters" />
+      <module name="PollCorrectionService" options="-parameters" />
       <module name="PollManagerService" options="-parameters" />
+      <module name="PollRepositoryService" options="-parameters" />
+      <module name="PollVotingService" options="-parameters" />
     </option>
   </component>
 </project>
