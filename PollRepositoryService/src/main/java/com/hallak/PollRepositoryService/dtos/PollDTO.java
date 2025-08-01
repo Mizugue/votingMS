@@ -1,14 +1,7 @@
-package com.hallak.PollManagerService.entities;
-
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
+package com.hallak.PollRepositoryService.dtos;
 
 import java.util.Objects;
 import java.util.Set;
-
-
 
 public class PollDTO {
 
@@ -41,7 +34,6 @@ public class PollDTO {
     public void setOptions(Set<String> options) {
         this.options = options;
     }
-
 
 
 }
