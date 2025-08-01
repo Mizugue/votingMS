@@ -1,6 +1,6 @@
-package com.hallak.PollRepositoryService.dtos;
+package com.hallak.PollVotingService.dtos;
 
-import java.util.Objects;
+
 import java.util.Set;
 
 public class PollDTO {
