@@ -1,13 +1,12 @@
 package com.hallak.PollVotingService.controllers;
 
+import com.hallak.PollVotingService.dtos.BallotDTO;
 import com.hallak.PollVotingService.dtos.PollDTO;
 import com.hallak.PollVotingService.services.PollVotingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +25,12 @@ public class PollVotingController {
     @GetMapping
     public ResponseEntity<List<PollDTO>> findAllPolls(){
         return new ResponseEntity<>(pollVotingService.findAllPolls(), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<BallotDTO> validateBallot(@RequestBody BallotDTO ballotDTO){
+        return new ResponseEntity<>(pollVotingService.validateBallot(ballotDTO), HttpStatus.CREATED);
+
     }
 
 

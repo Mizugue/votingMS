@@ -26,9 +26,6 @@ public class PollConsumerServiceImpl implements PollConsumerService {
     public void receivePoll(@Payload PollDTO pollDTO){
         System.out.println("Recebido " + pollDTO);
         pollRepository.save(modelMapper.map(pollDTO, Poll.class));
-
-
-
     }
 
 

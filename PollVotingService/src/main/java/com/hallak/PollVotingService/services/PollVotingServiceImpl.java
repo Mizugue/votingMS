@@ -1,6 +1,7 @@
 package com.hallak.PollVotingService.services;
 
 import com.hallak.PollVotingService.OPFConfig.PollRepositoryClient;
+import com.hallak.PollVotingService.dtos.BallotDTO;
 import com.hallak.PollVotingService.dtos.PollDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,13 @@ public class PollVotingServiceImpl implements PollVotingService{
     public List<PollDTO> findAllPolls() {
         return pollRepositoryClient.findAllPolls();
     }
+
+    @Override
+    public BallotDTO validateBallot(BallotDTO ballotDTO) {
+        return pollRepositoryClient.validateBallot(ballotDTO);
+
+    }
+
+
+
 }
