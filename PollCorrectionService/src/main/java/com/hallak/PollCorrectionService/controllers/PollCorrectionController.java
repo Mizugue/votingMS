@@ -1,6 +1,7 @@
 package com.hallak.PollCorrectionService.controllers;
 
 import com.hallak.PollCorrectionService.dto.BallotDTO;
+import com.hallak.PollCorrectionService.dto.VoteStatistics;
 import com.hallak.PollCorrectionService.dto.VoteSummary;
 import com.hallak.PollCorrectionService.services.PollCorrectionService;
 import org.apache.coyote.Response;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PollCorrectionController {
 
-    private PollCorrectionService pollCorrectionService;
+    private final PollCorrectionService pollCorrectionService;
 
 
     @Autowired
@@ -22,9 +23,9 @@ public class PollCorrectionController {
         this.pollCorrectionService = pollCorrectionService;
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<VoteSummary> getWinnerByPollId(@PathVariable Long id){
-        return new ResponseEntity<>(pollCorrectionService.getWinnerByPollId(id), HttpStatus.OK);
+    @GetMapping(value = "/{pollId}")
+    public ResponseEntity<VoteStatistics> getWinnerByPollId(@PathVariable Long pollId){
+        return new ResponseEntity<>(pollCorrectionService.getWinnerByPollId(pollId), HttpStatus.OK);
     }
 
 

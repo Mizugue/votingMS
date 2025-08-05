@@ -10,6 +10,9 @@ public class VoteSummary {
         this.voteStatisticsList = voteStatisticsList;
     }
 
+    public VoteSummary() {
+    }
+
     public List<VoteStatistics> getVoteStatisticsList() {
         return voteStatisticsList;
     }

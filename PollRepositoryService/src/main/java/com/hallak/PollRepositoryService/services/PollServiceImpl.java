@@ -44,9 +44,14 @@ public class PollServiceImpl implements PollService{
 
 
     @Override
-    public List<BallotToCorrectionDTO> findAllBallots() {
-        return ballotRepository.findAll().stream().
+    public List<BallotToCorrectionDTO> findAllBallotsByPollId(Long pollId) {
+        return ballotRepository.findByPollId(pollId).stream().
                 map(x -> modelMapper.map(x, BallotToCorrectionDTO.class)).toList();
+    }
+
+    @Override
+    public String findPollNameByPollId(Long pollId) {
+        return pollRepository.findById(pollId).get().getName();
     }
 
 }

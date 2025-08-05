@@ -1,6 +1,5 @@
 package com.hallak.PollRepositoryService.controllers;
 
-import com.hallak.PollRepositoryService.dtos.BallotDTO;
 import com.hallak.PollRepositoryService.dtos.BallotToCorrectionDTO;
 import com.hallak.PollRepositoryService.dtos.PollDTO;
 import com.hallak.PollRepositoryService.services.PollService;
@@ -28,10 +27,16 @@ public class PollRepositoryController {
         return new ResponseEntity<>(pollService.findAllPolls(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "ballots")
-    public ResponseEntity<List<BallotToCorrectionDTO>> findAllBallots(){
-        return new ResponseEntity<>(pollService.findAllBallots(), HttpStatus.OK);
+    @GetMapping(value = "ballots/{pollId}")
+    public ResponseEntity<List<BallotToCorrectionDTO>> findAllBallotsByPollId(@PathVariable Long pollId){
+        return new ResponseEntity<>(pollService.findAllBallotsByPollId(pollId), HttpStatus.OK);
     }
+
+    @GetMapping(value = "ballots/pollName/{pollId}")
+    public ResponseEntity<String> findPollNameByPollId(@PathVariable Long pollId){
+        return new ResponseEntity<>(pollService.findPollNameByPollId(pollId), HttpStatus.OK);
+    }
+
 
 
 

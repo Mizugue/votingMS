@@ -5,9 +5,9 @@ public class VoteStatistics {
     private String nameOfPoll;
     private String option;
     private Long voteCount;
-    private Double percentage;
+    private String percentage;
 
-    public VoteStatistics(String nameOfPoll, String option, Long voteCount, Double percentage) {
+    public VoteStatistics(String nameOfPoll, String option, Long voteCount, String percentage) {
         this.nameOfPoll = nameOfPoll;
         this.option = option;
         this.voteCount = voteCount;
@@ -41,11 +41,11 @@ public class VoteStatistics {
         this.voteCount = voteCount;
     }
 
-    public Double getPercentage() {
+    public String getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(Double percentage) {
+    public void setPercentage(String percentage) {
         this.percentage = percentage;
     }
 }
