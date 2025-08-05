@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping("/toVoting/")
 public class PollVotingController {
 
     private final PollVotingService pollVotingService;

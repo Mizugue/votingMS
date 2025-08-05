@@ -1,11 +1,6 @@
-package com.hallak.PollManagerService.entities;
+package com.hallak.PollManagerService.dtos;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-
-import java.util.Objects;
 import java.util.Set;
 
 

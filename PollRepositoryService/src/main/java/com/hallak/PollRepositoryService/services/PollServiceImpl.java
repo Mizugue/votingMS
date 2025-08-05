@@ -42,39 +42,6 @@ public class PollServiceImpl implements PollService{
                 map(x -> modelMapper.map(x, PollDTO.class)).toList();
     }
 
-    @Override
-    public BallotDTO validateBallot(BallotDTO ballotDTO) {
-        pollRepository.findById(ballotDTO.getPollId())
-    .orElseThrow(() -> new EntityNotFoundException("Poll with ID " + ballotDTO.getPollId() + " not found"));
-    Person person = personRepository.findByCpf(ballotDTO.getCpf()).orElseGet(() -> personRepository.save(new Person(ballotDTO.getCpf()))
-    );
-
-    Long personId = person.getId();
-
-        boolean checkOne = ballotRepository.existsByVoterIdAndPollId(personId, ballotDTO.getPollId());
-
-        if (checkOne){
-            throw new EntityExistsException("This person already did in this poll");
-        }
-
-        boolean checkerTwo = pollRepository.existsOptionInPoll(ballotDTO.getPollId(), ballotDTO.getOption());
-
-        if (!checkerTwo){
-            throw new ResourceNotFoundException("Option '" + ballotDTO.getOption() + "' does not exist in poll");
-
-        }
-
-        Ballot ballot = new Ballot();
-        ballot.setPollId(ballotDTO.getPollId());
-        ballot.setVoterId(personId);
-        ballot.setOption(ballotDTO.getOption());
-        ballotRepository.save(ballot);
-
-        return ballotDTO;
-
-
-
-    }
 
     @Override
     public List<BallotToCorrectionDTO> findAllBallots() {

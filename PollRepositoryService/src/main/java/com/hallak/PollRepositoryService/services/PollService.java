@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface PollService {
     List<PollDTO> findAllPolls();
-    BallotDTO validateBallot(BallotDTO ballotDTO);
     List<BallotToCorrectionDTO> findAllBallots();
 
 }
