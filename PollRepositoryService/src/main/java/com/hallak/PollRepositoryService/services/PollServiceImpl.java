@@ -23,15 +23,15 @@ public class PollServiceImpl implements PollService{
 
     private final ModelMapper modelMapper;
     private final PollRepository pollRepository;
-    private final PersonRepository personRepository;
     private final BallotRepository ballotRepository;
+    private final PPBRemover ppbRemover;
 
     @Autowired
-    public PollServiceImpl(ModelMapper modelMapper, PollRepository pollRepository, PersonRepository personRepository, BallotRepository ballotRepository){
+    public PollServiceImpl(ModelMapper modelMapper, PollRepository pollRepository, PersonRepository personRepository, BallotRepository ballotRepository, PPBRemover ppbRemover){
         this.modelMapper = modelMapper;
         this.pollRepository = pollRepository;
-        this.personRepository = personRepository;
         this.ballotRepository = ballotRepository;
+        this.ppbRemover = ppbRemover;
 
     }
 
@@ -51,7 +51,11 @@ public class PollServiceImpl implements PollService{
 
     @Override
     public String findPollNameByPollId(Long pollId) {
-        return pollRepository.findById(pollId).get().getName();
+        String name = pollRepository.findById(pollId).get().getName();
+        //ppbRemover.deleteRecordAfterSettlement(pollId);
+        return name;
     }
+
+
 
 }

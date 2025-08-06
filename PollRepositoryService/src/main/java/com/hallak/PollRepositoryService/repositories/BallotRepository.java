@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface BallotRepository extends JpaRepository<Ballot, Long> {
     boolean existsByVoterIdAndPollId(Long voterId, Long pollId);
     List<Ballot> findByPollId(Long pollId);
+    void deleteByPollId(Long pollId);
 
 }

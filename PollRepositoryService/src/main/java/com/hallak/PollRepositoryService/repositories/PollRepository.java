@@ -12,5 +12,5 @@ public interface PollRepository extends JpaRepository<Poll, Long> {
     value = "SELECT EXISTS(SELECT 1 FROM poll_options WHERE poll_id = :pollId AND option = :option)",
     nativeQuery = true
 )
-boolean existsOptionInPoll(@Param("pollId") Long pollId, @Param("option") String option);
+    boolean existsOptionInPoll(@Param("pollId") Long pollId, @Param("option") String option);
 }

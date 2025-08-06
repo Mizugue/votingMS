@@ -36,13 +36,20 @@ public class PollCorrectionServiceImpl implements PollCorrectionService {
     .orElse(null);
 
         Map.Entry<String, Long> mostFrequent = ballots.stream()
-        .map(BallotDTO::getOption)
+                .map(BallotDTO::getOption)
         .collect(Collectors.groupingBy(option -> option, Collectors.counting()))
         .entrySet().stream()
         .max(Map.Entry.comparingByValue())
         .orElse(null);
 
-        Long frequency = mostFrequent.getValue();
+        Long frequency;
+
+        if (mostFrequent == null){
+            frequency = 0L;
+        } else {
+            frequency = mostFrequent.getValue();
+        }
+
 
 
         return new VoteStatistics(
@@ -52,11 +59,8 @@ public class PollCorrectionServiceImpl implements PollCorrectionService {
                 String.format("%.2f", (frequency * 100.0) / ballots.size()));
 
 
-
-
-
-
-
-
     }
+
+
+
 }
