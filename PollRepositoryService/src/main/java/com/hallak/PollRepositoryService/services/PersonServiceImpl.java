@@ -18,7 +18,6 @@ public class PersonServiceImpl implements PersonService {
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Person insertPerson(Person person) {
         return personRepository.saveAndFlush(person);
-
-
+        
     }
 }
