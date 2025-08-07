@@ -1,8 +1,8 @@
 package com.hallak.PollVotingService.OPFConfig;
 
-import com.hallak.PollVotingService.dtos.PersonDTO;
-import com.hallak.PollVotingService.dtos.PollDTO;
+import com.hallak.sharedDtos.dtos.PersonDTO;
 import com.hallak.sharedDtos.dtos.PersonResponseDTO;
+import com.hallak.sharedDtos.dtos.PollDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

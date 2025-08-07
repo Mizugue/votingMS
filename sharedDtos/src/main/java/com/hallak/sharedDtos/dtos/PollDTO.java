@@ -1,5 +1,4 @@
-package com.hallak.PollVotingService.dtos;
-
+package com.hallak.sharedDtos.dtos;
 
 import java.util.Set;
 

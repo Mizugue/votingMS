@@ -1,11 +1,7 @@
 package com.hallak.PollVotingService.services;
 
 import com.hallak.PollVotingService.OPFConfig.PollRepositoryClient;
-import com.hallak.PollVotingService.dtos.BallotDTO;
-import com.hallak.PollVotingService.dtos.PersonDTO;
-import com.hallak.PollVotingService.dtos.PollDTO;
-import com.hallak.sharedDtos.dtos.BallotResponseDTO;
-import com.hallak.sharedDtos.dtos.PersonResponseDTO;
+import com.hallak.sharedDtos.dtos.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

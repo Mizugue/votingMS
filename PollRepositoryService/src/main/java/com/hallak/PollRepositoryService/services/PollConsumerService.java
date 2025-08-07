@@ -1,7 +1,9 @@
 package com.hallak.PollRepositoryService.services;
 
 import com.hallak.PollRepositoryService.dtos.*;
+import com.hallak.sharedDtos.dtos.BallotDTO;
 import com.hallak.sharedDtos.dtos.BallotResponseDTO;
+import com.hallak.sharedDtos.dtos.PollDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;

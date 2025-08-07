@@ -1,8 +1,6 @@
 package com.hallak.PollRepositoryService.services;
 
 
-import com.hallak.PollRepositoryService.dtos.BallotDTO;
-import com.hallak.PollRepositoryService.dtos.PollDTO;
 import com.hallak.PollRepositoryService.entities.Ballot;
 import com.hallak.PollRepositoryService.entities.Person;
 import com.hallak.PollRepositoryService.entities.Poll;
@@ -10,7 +8,9 @@ import com.hallak.PollRepositoryService.repositories.BallotRepository;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.repositories.PollRepository;
 import com.hallak.PollRepositoryService.security.JwtUtil;
+import com.hallak.sharedDtos.dtos.BallotDTO;
 import com.hallak.sharedDtos.dtos.BallotResponseDTO;
+import com.hallak.sharedDtos.dtos.PollDTO;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;

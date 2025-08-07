@@ -1,22 +1,15 @@
 package com.hallak.PollRepositoryService.services;
 
-import com.hallak.PollRepositoryService.dtos.BallotDTO;
 import com.hallak.PollRepositoryService.dtos.BallotToCorrectionDTO;
-import com.hallak.PollRepositoryService.dtos.PollDTO;
-import com.hallak.PollRepositoryService.entities.Ballot;
-import com.hallak.PollRepositoryService.entities.Person;
-import com.hallak.PollRepositoryService.exceptions.ResourceNotFoundException;
 import com.hallak.PollRepositoryService.repositories.BallotRepository;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.repositories.PollRepository;
-import jakarta.persistence.EntityExistsException;
-import jakarta.persistence.EntityNotFoundException;
+import com.hallak.sharedDtos.dtos.PollDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PollServiceImpl implements PollService{

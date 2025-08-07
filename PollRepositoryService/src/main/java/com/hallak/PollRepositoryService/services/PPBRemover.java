@@ -1,6 +1,5 @@
 package com.hallak.PollRepositoryService.services;
 
-import com.hallak.PollRepositoryService.dtos.BallotDTO;
 import com.hallak.PollRepositoryService.repositories.BallotRepository;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.repositories.PollRepository;

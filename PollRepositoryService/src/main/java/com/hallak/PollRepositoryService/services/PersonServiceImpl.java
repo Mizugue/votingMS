@@ -1,9 +1,9 @@
 package com.hallak.PollRepositoryService.services;
 
-import com.hallak.PollRepositoryService.dtos.PersonDTO;
 import com.hallak.PollRepositoryService.entities.Person;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.security.JwtUtil;
+import com.hallak.sharedDtos.dtos.PersonDTO;
 import com.hallak.sharedDtos.dtos.PersonResponseDTO;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;

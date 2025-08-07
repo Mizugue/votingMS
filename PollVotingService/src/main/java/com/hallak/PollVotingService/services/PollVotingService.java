@@ -1,8 +1,7 @@
 package com.hallak.PollVotingService.services;
 
 import com.hallak.PollVotingService.dtos.*;
-import com.hallak.sharedDtos.dtos.BallotResponseDTO;
-import com.hallak.sharedDtos.dtos.PersonResponseDTO;
+import com.hallak.sharedDtos.dtos.*;
 
 import java.util.List;
 
