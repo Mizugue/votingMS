@@ -16,8 +16,7 @@ public class Ballot {
     private Long voterId;
     private String option;
 
-    public Ballot(Long id, Long pollId, Long voterId, String option) {
-        this.id = id;
+    public Ballot(Long pollId, Long voterId, String option) {
         this.pollId = pollId;
         this.voterId = voterId;
         this.option = option;

@@ -1,13 +1,13 @@
 package com.hallak.PollVotingService.services;
 
-import com.hallak.PollVotingService.dtos.BallotDTO;
-import com.hallak.PollVotingService.dtos.PersonDTO;
-import com.hallak.PollVotingService.dtos.PollDTO;
+import com.hallak.PollVotingService.dtos.*;
+import com.hallak.sharedDtos.dtos.BallotResponseDTO;
+import com.hallak.sharedDtos.dtos.PersonResponseDTO;
 
 import java.util.List;
 
 public interface PollVotingService {
     List<PollDTO> findAllPolls();
-    BallotDTO validateBallot(BallotDTO ballotDTO);
-    PersonDTO newPerson(PersonDTO personDTO);
+    BallotResponseDTO validateBallot(BallotDTO ballotDTO);
+    PersonResponseDTO newPerson(PersonDTO personDTO);
 }

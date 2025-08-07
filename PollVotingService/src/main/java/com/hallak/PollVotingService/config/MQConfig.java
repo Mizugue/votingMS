@@ -14,10 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MQConfig {
 
-    @Bean
-    public Queue queueToSaveNewPersons(@Value("${rabbitmq.queues.persons}") String queueName) {
-        return QueueBuilder.durable(queueName).build();
-    }
 
     @Bean
     public Queue queueToSaveNewBallots(@Value("${rabbitmq.queues.ballots}") String queueName) {

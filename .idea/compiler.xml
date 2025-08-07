@@ -23,8 +23,12 @@
         <module name="ConfigService" />
         <module name="PollRepositoryService" />
         <module name="EurekaService" />
+        <module name="sharedDtos" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shared-dtos" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -34,6 +38,7 @@
       <module name="PollManagerService" options="-parameters" />
       <module name="PollRepositoryService" options="-parameters" />
       <module name="PollVotingService" options="-parameters" />
+      <module name="sharedDtos" options="" />
     </option>
   </component>
 </project>

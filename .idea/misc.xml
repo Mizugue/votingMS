@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/PollVotingService/pom.xml" />
         <option value="$PROJECT_DIR$/PollRepositoryService/pom.xml" />
         <option value="$PROJECT_DIR$/PollCorrectionService/pom.xml" />
+        <option value="$PROJECT_DIR$/shared-dtos/pom.xml" />
+        <option value="$PROJECT_DIR$/sharedDtos/pom.xml" />
       </list>
     </option>
   </component>

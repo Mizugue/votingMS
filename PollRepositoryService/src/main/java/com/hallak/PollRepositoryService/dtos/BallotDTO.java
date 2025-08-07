@@ -4,12 +4,12 @@ public class BallotDTO {
 
     private Long pollId;
     private String option;
-    private String cpf;
+    private String token;
 
-    public BallotDTO(Long pollId, String option, String cpf) {
+    public BallotDTO(Long pollId, String option, String token) {
         this.pollId = pollId;
         this.option = option;
-        this.cpf = cpf;
+        this.token = token;
     }
 
     public BallotDTO() {
@@ -31,12 +31,12 @@ public class BallotDTO {
         this.option = option;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getToken() {
+        return token;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setToken(String token) {
+        this.token = token;
     }
 }
 

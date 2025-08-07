@@ -1,23 +1,47 @@
 package com.hallak.PollRepositoryService.services;
 
+import com.hallak.PollRepositoryService.dtos.PersonDTO;
 import com.hallak.PollRepositoryService.entities.Person;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
+import com.hallak.PollRepositoryService.security.JwtUtil;
+import com.hallak.sharedDtos.dtos.PersonResponseDTO;
+import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.orm.ObjectOptimisticLockingFailureException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 public class PersonServiceImpl implements PersonService {
 
-    @Autowired
-    private PersonRepository personRepository;
+    private final PersonRepository personRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public Person insertPerson(Person person) {
-        return personRepository.saveAndFlush(person);
-        
+    @Autowired
+    public PersonServiceImpl(JwtUtil jwtUtil, PersonRepository personRepository, PasswordEncoder passwordEncoder) {
+        this.personRepository = personRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtUtil = jwtUtil;
+    }
+
+    @Override
+    public PersonResponseDTO newPerson(PersonDTO personDTO) {
+        if (personRepository.findByCpf(personDTO.cpf()).isPresent()){
+            throw new EntityExistsException("Person already exists");
+        }
+
+        Person person = new Person(
+                personDTO.cpf(), passwordEncoder.encode(personDTO.password()));
+        personRepository.save(person);
+
+        return new PersonResponseDTO(
+                personDTO.cpf(), jwtUtil.generateToken(personDTO.cpf()));
+
+
+
+
+
+
     }
 }

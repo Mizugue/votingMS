@@ -1,7 +1,8 @@
 package com.hallak.PollRepositoryService.services;
 
-import com.hallak.PollRepositoryService.entities.Person;
+import com.hallak.PollRepositoryService.dtos.PersonDTO;
+import com.hallak.sharedDtos.dtos.PersonResponseDTO;
 
 public interface PersonService {
-    Person insertPerson(Person person);
+    PersonResponseDTO newPerson(PersonDTO personDTO);
 }

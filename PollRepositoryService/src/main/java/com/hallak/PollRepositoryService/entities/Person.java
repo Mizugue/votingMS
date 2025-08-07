@@ -12,9 +12,12 @@ public class Person {
     @Column(unique = true, nullable = false)
     private String cpf;
 
-    public Person(Long id, String cpf) {
-        this.id = id;
+    @Column(nullable = false)
+    private String password;
+
+    public Person(String cpf, String password) {
         this.cpf = cpf;
+        this.password = password;
     }
 
     public Person() {
@@ -40,5 +43,11 @@ public class Person {
         this.cpf = cpf;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

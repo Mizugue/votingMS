@@ -1,9 +1,8 @@
 package com.hallak.PollVotingService.controllers;
 
-import com.hallak.PollVotingService.dtos.BallotDTO;
-import com.hallak.PollVotingService.dtos.PersonDTO;
-import com.hallak.PollVotingService.dtos.PollDTO;
+import com.hallak.PollVotingService.dtos.*;
 import com.hallak.PollVotingService.services.PollVotingService;
+import com.hallak.sharedDtos.dtos.BallotResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,12 +28,12 @@ public class PollVotingController {
     }
 
     @PostMapping
-    public ResponseEntity<BallotDTO> validateBallot(@RequestBody BallotDTO ballotDTO){
+    public ResponseEntity<BallotResponseDTO> validateBallot(@RequestBody BallotDTO ballotDTO){
         return new ResponseEntity<>(pollVotingService.validateBallot(ballotDTO), HttpStatus.CREATED);
     }
 
-    @PostMapping(value = "newUser")
-    public ResponseEntity<PersonDTO> newPerson(@RequestBody PersonDTO personDTO){
+    @PostMapping(value = "newPerson")
+    public ResponseEntity<PersonResponseDTO> newPerson(@RequestBody PersonDTO personDTO){
         return new ResponseEntity<>(pollVotingService.newPerson(personDTO), HttpStatus.CREATED);
     }
 
