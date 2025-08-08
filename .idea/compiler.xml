@@ -22,8 +22,8 @@
         <module name="PollCorrectionService" />
         <module name="ConfigService" />
         <module name="PollRepositoryService" />
+        <module name="shared-library" />
         <module name="EurekaService" />
-        <module name="sharedDtos" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,7 +38,7 @@
       <module name="PollManagerService" options="-parameters" />
       <module name="PollRepositoryService" options="-parameters" />
       <module name="PollVotingService" options="-parameters" />
-      <module name="sharedDtos" options="" />
+      <module name="shared-library" options="-parameters" />
     </option>
   </component>
 </project>

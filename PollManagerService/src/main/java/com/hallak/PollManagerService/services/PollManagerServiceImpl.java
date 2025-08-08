@@ -1,7 +1,8 @@
 package com.hallak.PollManagerService.services;
 
 
-import com.hallak.PollManagerService.dtos.PollDTO;
+
+import com.hallak.shared_library.dtos.PollDTO;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

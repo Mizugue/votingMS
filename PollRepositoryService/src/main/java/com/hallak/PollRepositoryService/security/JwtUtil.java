@@ -1,11 +1,14 @@
 package com.hallak.PollRepositoryService.security;
 
 
+import com.hallak.PollRepositoryService.services.PollConsumerServiceImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +20,8 @@ public class JwtUtil {
 
 
     private final Key key;
-
-    private final long expirationMillis = 5 * 60 * 1000; //Coloquei 5 min
+    private static final Logger log = LoggerFactory.getLogger(JwtUtil.class);
+    private final long expirationMillis = 5 * 60 * 1000; //5 min
 
     public JwtUtil(@Value("${jwt.secret}") String secret) {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
@@ -39,11 +42,16 @@ public class JwtUtil {
 
 
     public String validateTokenAndGetCpf(String token) {
-        Jws<Claims> claimsJws = Jwts.parserBuilder()
+        try {
+            Jws<Claims> claimsJws = Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token);
+            return claimsJws.getBody().getSubject();
 
-        return claimsJws.getBody().getSubject();
+        } catch (Exception e) {
+            log.error("The Token is invalid");
+            throw new IllegalArgumentException(e.getLocalizedMessage());
+        }
     }
 }

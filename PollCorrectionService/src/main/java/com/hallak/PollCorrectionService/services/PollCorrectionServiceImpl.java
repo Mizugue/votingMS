@@ -2,7 +2,7 @@ package com.hallak.PollCorrectionService.services;
 
 import com.hallak.PollCorrectionService.OPFConfig.PollRepositoryClient;
 import com.hallak.PollCorrectionService.dto.VoteStatistics;
-import com.hallak.sharedDtos.dtos.BallotDTO;
+import com.hallak.shared_library.dtos.BallotDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

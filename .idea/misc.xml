@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/PollCorrectionService/pom.xml" />
         <option value="$PROJECT_DIR$/shared-dtos/pom.xml" />
         <option value="$PROJECT_DIR$/sharedDtos/pom.xml" />
+        <option value="$PROJECT_DIR$/shared-library/pom.xml" />
       </list>
     </option>
   </component>

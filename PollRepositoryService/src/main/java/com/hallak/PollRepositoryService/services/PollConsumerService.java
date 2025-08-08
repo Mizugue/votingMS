@@ -1,10 +1,9 @@
 package com.hallak.PollRepositoryService.services;
 
 
-import com.hallak.sharedDtos.dtos.BallotDTO;
-import com.hallak.sharedDtos.dtos.BallotResponseDTO;
-import com.hallak.sharedDtos.dtos.PollDTO;
-
+import com.hallak.shared_library.dtos.BallotDTO;
+import com.hallak.shared_library.dtos.BallotResponseDTO;
+import com.hallak.shared_library.dtos.PollDTO;
 
 public interface PollConsumerService {
     void receivePoll(PollDTO pollDTO);

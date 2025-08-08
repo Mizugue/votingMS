@@ -3,8 +3,9 @@ package com.hallak.PollRepositoryService.services;
 import com.hallak.PollRepositoryService.repositories.BallotRepository;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.repositories.PollRepository;
-import com.hallak.sharedDtos.dtos.BallotToCorrectionDTO;
-import com.hallak.sharedDtos.dtos.PollDTO;
+import com.hallak.shared_library.dtos.BallotToCorrectionDTO;
+import com.hallak.shared_library.dtos.PollDTO;
+import com.hallak.shared_library.exceptions.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,9 +32,15 @@ public class PollServiceImpl implements PollService{
 
     @Override
     public List<PollDTO> findAllPolls() {
-        return pollRepository.findAll().stream().
-                map(x -> modelMapper.map(x, PollDTO.class)).toList();
-    }
+        List<PollDTO> list = pollRepository.findAll().stream().
+                    map(x -> modelMapper.map(x, PollDTO.class)).toList();
+        if (list.isEmpty()){
+            throw new ResourceNotFoundException("No polls registered");
+        }
+        return list;
+        }
+
+
 
     @Override
     public List<BallotToCorrectionDTO> findAllBallotsByPollId(Long pollId) {

@@ -1,4 +1,4 @@
-package com.hallak.sharedDtos.dtos;
+package com.hallak.shared_library.dtos;
 
 public class BallotDTO {
 

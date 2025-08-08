@@ -2,10 +2,10 @@ package com.hallak.PollRepositoryService.controllers;
 
 import com.hallak.PollRepositoryService.services.PersonService;
 import com.hallak.PollRepositoryService.services.PollService;
-import com.hallak.sharedDtos.dtos.BallotToCorrectionDTO;
-import com.hallak.sharedDtos.dtos.PersonDTO;
-import com.hallak.sharedDtos.dtos.PersonResponseDTO;
-import com.hallak.sharedDtos.dtos.PollDTO;
+import com.hallak.shared_library.dtos.BallotToCorrectionDTO;
+import com.hallak.shared_library.dtos.PersonDTO;
+import com.hallak.shared_library.dtos.PersonResponseDTO;
+import com.hallak.shared_library.dtos.PollDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

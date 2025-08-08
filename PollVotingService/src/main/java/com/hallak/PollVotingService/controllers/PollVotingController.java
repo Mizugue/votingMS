@@ -1,8 +1,8 @@
 package com.hallak.PollVotingService.controllers;
 
-import com.hallak.PollVotingService.dtos.*;
+
 import com.hallak.PollVotingService.services.PollVotingService;
-import com.hallak.sharedDtos.dtos.*;
+import com.hallak.shared_library.dtos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
