@@ -1,6 +1,6 @@
 package com.hallak.PollRepositoryService.services;
 
-import com.hallak.PollRepositoryService.dtos.BallotToCorrectionDTO;
+import com.hallak.sharedDtos.dtos.BallotToCorrectionDTO;
 import com.hallak.sharedDtos.dtos.PollDTO;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package com.hallak.PollRepositoryService.services;
 
-import com.hallak.PollRepositoryService.dtos.BallotToCorrectionDTO;
 import com.hallak.PollRepositoryService.repositories.BallotRepository;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.repositories.PollRepository;
+import com.hallak.sharedDtos.dtos.BallotToCorrectionDTO;
 import com.hallak.sharedDtos.dtos.PollDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

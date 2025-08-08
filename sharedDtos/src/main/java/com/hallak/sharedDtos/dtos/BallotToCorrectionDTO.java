@@ -1,16 +1,16 @@
-package com.hallak.PollCorrectionService.dto;
+package com.hallak.sharedDtos.dtos;
 
-public class BallotDTO {
+public class BallotToCorrectionDTO {
 
 
     private String option;
 
 
-    public BallotDTO(String option) {
+    public BallotToCorrectionDTO(String option) {
         this.option = option;
     }
 
-    public BallotDTO() {
+    public BallotToCorrectionDTO() {
     }
 
 
@@ -26,9 +26,4 @@ public class BallotDTO {
 
 
 }
-
-
-
-
-
 

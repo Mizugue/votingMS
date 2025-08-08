@@ -1,10 +1,7 @@
 package com.hallak.PollCorrectionService.controllers;
 
-import com.hallak.PollCorrectionService.dto.BallotDTO;
 import com.hallak.PollCorrectionService.dto.VoteStatistics;
-import com.hallak.PollCorrectionService.dto.VoteSummary;
 import com.hallak.PollCorrectionService.services.PollCorrectionService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

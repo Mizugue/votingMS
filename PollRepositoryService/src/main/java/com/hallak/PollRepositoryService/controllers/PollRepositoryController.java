@@ -1,8 +1,8 @@
 package com.hallak.PollRepositoryService.controllers;
 
-import com.hallak.PollRepositoryService.dtos.BallotToCorrectionDTO;
 import com.hallak.PollRepositoryService.services.PersonService;
 import com.hallak.PollRepositoryService.services.PollService;
+import com.hallak.sharedDtos.dtos.BallotToCorrectionDTO;
 import com.hallak.sharedDtos.dtos.PersonDTO;
 import com.hallak.sharedDtos.dtos.PersonResponseDTO;
 import com.hallak.sharedDtos.dtos.PollDTO;
