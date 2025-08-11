@@ -1,6 +1,7 @@
 package com.hallak.PollVotingService.OPF;
 
 import com.hallak.PollVotingService.OPF.config.FeignConfig;
+import com.hallak.shared_library.dtos.PersonDTO;
 import com.hallak.shared_library.dtos.PersonResponseDTO;
 import com.hallak.shared_library.dtos.PollDTO;
 import org.springframework.cloud.openfeign.FeignClient;

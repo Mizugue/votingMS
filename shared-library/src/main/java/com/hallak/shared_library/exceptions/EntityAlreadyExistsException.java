@@ -1,23 +1,21 @@
 package com.hallak.shared_library.exceptions;
 
-
 import com.hallak.shared_library.errorhandling.APIError;
 
-public class ResourceNotFoundException extends RuntimeException{
+public class EntityAlreadyExistsException extends RuntimeException{
 
     private APIError apiError;
 
-    public ResourceNotFoundException() {
+    public EntityAlreadyExistsException() {
     }
 
-    public ResourceNotFoundException(String message) {
+    public EntityAlreadyExistsException(String message) {
         super(message);
     }
 
-    public ResourceNotFoundException(APIError apiError) {
+    public EntityAlreadyExistsException(APIError apiError){
         this.apiError = apiError;
     }
-
 
     public APIError getApiError() {
         return apiError;

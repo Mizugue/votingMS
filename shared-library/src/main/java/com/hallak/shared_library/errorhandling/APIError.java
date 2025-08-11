@@ -1,7 +1,11 @@
 package com.hallak.shared_library.errorhandling;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.Instant;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class APIError {
 
     private Instant timestamp;
@@ -14,6 +18,9 @@ public class APIError {
         this.status = status;
         this.error = error;
         this.trace = trace;
+    }
+
+    public APIError() {
     }
 
     public Instant getTimestamp() {

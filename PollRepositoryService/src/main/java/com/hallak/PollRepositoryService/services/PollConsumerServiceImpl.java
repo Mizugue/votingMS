@@ -48,7 +48,7 @@ public class PollConsumerServiceImpl implements PollConsumerService {
     @RabbitListener(queues = "${rabbitmq.queues.polls}")
     @Transactional
     public void receivePoll(@Payload PollDTO pollDTO){
-        System.out.println("Recebido " + pollDTO);
+        log.info("Received {}", pollDTO);
         pollRepository.save(modelMapper.map(pollDTO, Poll.class));
     }
 

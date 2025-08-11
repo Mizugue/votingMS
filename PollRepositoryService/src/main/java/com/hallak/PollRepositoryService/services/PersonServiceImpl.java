@@ -5,7 +5,7 @@ import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.security.JwtUtil;
 import com.hallak.shared_library.dtos.PersonDTO;
 import com.hallak.shared_library.dtos.PersonResponseDTO;
-import jakarta.persistence.EntityExistsException;
+import com.hallak.shared_library.exceptions.EntityAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,12 +28,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public PersonResponseDTO newPerson(PersonDTO personDTO) {
         if (personRepository.findByCpf(personDTO.cpf()).isPresent()){
-            throw new EntityExistsException("Person already exists");
+            throw new EntityAlreadyExistsException("This Person already exists");
         }
 
         Person person = new Person(
-                personDTO.cpf(), passwordEncoder.encode(personDTO.password()));
-        personRepository.save(person);
+                personDTO.cpf(),passwordEncoder.encode(personDTO.password()));personRepository.save(person);
 
         return new PersonResponseDTO(
                 personDTO.cpf(), jwtUtil.generateToken(personDTO.cpf()));

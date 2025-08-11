@@ -44,8 +44,12 @@ public class PollServiceImpl implements PollService{
 
     @Override
     public List<BallotToCorrectionDTO> findAllBallotsByPollId(Long pollId) {
-        return ballotRepository.findByPollId(pollId).stream().
+        List<BallotToCorrectionDTO> list = ballotRepository.findByPollId(pollId).stream().
                 map(x -> modelMapper.map(x, BallotToCorrectionDTO.class)).toList();
+        if (list.isEmpty()){
+            throw new ResourceNotFoundException("No ballots in the poll");
+        }
+        return list;
     }
 
     @Override
