@@ -6,7 +6,7 @@ import com.hallak.shared_library.dtos.BallotResponseDTO;
 import com.hallak.shared_library.dtos.PollDTO;
 
 public interface PollConsumerService {
-    void receivePoll(PollDTO pollDTO);
-    BallotResponseDTO receiveBallot(BallotDTO ballotDTO);
+    PollDTO receivePoll(PollDTO pollDTO);
+    Object receiveBallot(BallotDTO ballotDTO);
 
 }

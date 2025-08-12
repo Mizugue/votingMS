@@ -1,15 +1,15 @@
 package com.hallak.PollRepositoryService.security;
 
 
-import com.hallak.PollRepositoryService.services.PollConsumerServiceImpl;
+import com.hallak.shared_library.exceptions.AsyncErrorException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -50,8 +50,7 @@ public class JwtUtil {
             return claimsJws.getBody().getSubject();
 
         } catch (Exception e) {
-            log.error("The Token is invalid");
-            throw new IllegalArgumentException(e.getLocalizedMessage());
+            throw new AsyncErrorException("The token is invalid");
         }
     }
 }

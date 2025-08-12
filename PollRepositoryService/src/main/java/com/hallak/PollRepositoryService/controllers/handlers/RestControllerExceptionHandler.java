@@ -3,7 +3,6 @@ package com.hallak.PollRepositoryService.controllers.handlers;
 import com.hallak.shared_library.errorhandling.APIError;
 import com.hallak.shared_library.exceptions.EntityAlreadyExistsException;
 import com.hallak.shared_library.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityExistsException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import java.time.Instant;
 
 
 @RestControllerAdvice
-public class ControllerExceptionHandler {
+public class RestControllerExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<APIError> resourceNotFound(ResourceNotFoundException e, HttpServletRequest request) {
@@ -37,6 +36,8 @@ public class ControllerExceptionHandler {
                                 ,e.getMessage()
                                 ,request.getRequestURI()));
     }
+
+
 }
 
 

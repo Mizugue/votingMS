@@ -13,15 +13,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MQConfig {
 
-    @Value("${rabbitmq.queues.name}")
-    private String queueName;
-
     @Bean
-    public Queue queueSaveNewPolls() {
+    public Queue queueToSaveNewPolls(@Value("${rabbitmq.queues.polls}") String queueName) {
         return QueueBuilder.durable(queueName).build();
     }
 
 
+    @Bean
     public Jackson2JsonMessageConverter messageConverter(){
         return new Jackson2JsonMessageConverter();
     }

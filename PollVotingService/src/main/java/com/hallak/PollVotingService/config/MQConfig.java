@@ -20,6 +20,7 @@ public class MQConfig {
         return QueueBuilder.durable(queueName).build();
     }
 
+    @Bean
     public Jackson2JsonMessageConverter messageConverter(){
         return new Jackson2JsonMessageConverter();
     }
