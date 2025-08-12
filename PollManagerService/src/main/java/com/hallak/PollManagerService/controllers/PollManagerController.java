@@ -1,8 +1,9 @@
 package com.hallak.PollManagerService.controllers;
 
 
-import com.hallak.PollManagerService.dtos.PollDTO;
+import com.hallak.PollManagerService.dtos.PollDTOFromManager;
 import com.hallak.PollManagerService.services.PollManagerService;
+import com.hallak.shared_library.dtos.PollDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class PollManagerController {
 
 
     @PostMapping
-    public ResponseEntity<PollDTO> newPoll(@RequestBody PollDTO pollDTO){
+    public ResponseEntity<PollDTO> newPoll(@RequestBody PollDTOFromManager pollDTO){
         return new ResponseEntity<>(pollManagerService.newPoll(pollDTO), HttpStatus.CREATED);
     }
 

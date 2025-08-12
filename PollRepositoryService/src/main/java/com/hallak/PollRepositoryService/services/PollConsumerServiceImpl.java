@@ -49,9 +49,16 @@ public class PollConsumerServiceImpl implements PollConsumerService {
     @Override
     @RabbitListener(queues = "${rabbitmq.queues.polls}")
     @Transactional
-    public PollDTO receivePoll(@Payload PollDTO pollDTO) {
-        log.info("Received {}", pollDTO);
-        return modelMapper.map(pollRepository.save(modelMapper.map(pollDTO, Poll.class)), PollDTO.class);
+    public Object receivePoll(@Payload PollDTO pollDTO) {
+        try {
+            log.info("Received {}", pollDTO.toString());
+            if (pollRepository.findByName(pollDTO.getName()).isPresent()) {
+                throw new AsyncErrorException("This poll with name: " + pollDTO.getName() + " already exists");
+            }
+            return modelMapper.map(pollRepository.save(modelMapper.map(pollDTO, Poll.class)), PollDTO.class);
+        } catch (AsyncErrorException e) {
+            return new AsyncError(Instant.now(), HttpStatus.BAD_REQUEST.value(), e.getMessage());
+        }
     }
 
     @Override

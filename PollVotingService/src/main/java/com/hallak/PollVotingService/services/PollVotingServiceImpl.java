@@ -44,14 +44,12 @@ public class PollVotingServiceImpl implements PollVotingService{
     @Override
     public BallotResponseDTO validateBallot(BallotDTO ballotDTO) {
         Object response = rabbitTemplate.convertSendAndReceive(ballotsQueueName, ballotDTO);
-        log.info("Response class: {}", response != null ? response.getClass().getName() : "null");
 
         if (response instanceof LinkedHashMap) { // Sou obrigado a fazer isso, justo que a implmentacao padrao do Jackson para representar JSON de objeto e LinkedHaskMAp
             LinkedHashMap<?, ?> map = (LinkedHashMap<?, ?>) response;
 
             if (map.containsKey("error")) {
-                AsyncError asyncError = objectMapper.convertValue(map, AsyncError.class);
-                throw new AsyncErrorException(asyncError);
+                throw new AsyncErrorException(objectMapper.convertValue(map, AsyncError.class));
             }
 
             if (map.containsKey("pollId")){

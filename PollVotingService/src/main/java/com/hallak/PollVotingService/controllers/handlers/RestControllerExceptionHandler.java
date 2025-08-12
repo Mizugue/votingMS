@@ -33,7 +33,7 @@ public class RestControllerExceptionHandler {
     }
 
     @ExceptionHandler(AsyncErrorException.class)
-    public ResponseEntity<AsyncError> EntityExists(AsyncErrorException e) {
+    public ResponseEntity<AsyncError> AsyncError(AsyncErrorException e) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(e.getAsyncError());
