@@ -33,8 +33,7 @@ public class PollManagerServiceImpl implements PollManagerService {
 
     public PollDTO newPoll(PollDTOFromManager pollDTO) {
         Object response = rabbitTemplate.convertSendAndReceive(pollsQueueName, pollDTO);
-        System.out.println(response);
-        System.out.println(response.getClass());
+
 
         if (response instanceof LinkedHashMap) {
             LinkedHashMap<?, ?> map = (LinkedHashMap<?, ?>) response;

@@ -28,7 +28,7 @@ public class PollCorrectionServiceImpl implements PollCorrectionService {
 
         String optionWinner = ballots.stream()
     .map(BallotDTO::getOption)
-    .collect(Collectors.groupingBy(option -> option, Collectors.counting())) // conta
+    .collect(Collectors.groupingBy(option -> option, Collectors.counting()))
     .entrySet().stream()
     .max(Map.Entry.comparingByValue())
     .map(Map.Entry::getKey)

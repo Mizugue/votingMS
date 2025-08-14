@@ -1,5 +1,6 @@
 package com.hallak.PollRepositoryService.services;
 
+import com.hallak.PollRepositoryService.entities.Poll;
 import com.hallak.PollRepositoryService.repositories.BallotRepository;
 import com.hallak.PollRepositoryService.repositories.PersonRepository;
 import com.hallak.PollRepositoryService.repositories.PollRepository;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PollServiceImpl implements PollService{
@@ -54,9 +56,15 @@ public class PollServiceImpl implements PollService{
 
     @Override
     public String findPollNameByPollId(Long pollId) {
-        String name = pollRepository.findById(pollId).get().getName();
-        //ppbRemover.deleteRecordAfterSettlement(pollId);
-        return name;
+        Optional<Poll> poll = pollRepository.findById(pollId);
+        if (poll.isPresent()){
+            ppbRemover.deleteRecordAfterSettlement(pollId);
+            return poll.get().getName();
+        }
+        throw new ResourceNotFoundException("No poll with this id: " + pollId);
+
+
+
     }
 
 
